@@ -11,9 +11,12 @@
   boot.loader.efi.canTouchEfiVariables = true;
 
   hardware.enableAllFirmware = true;
+  nixpkgs.config.allowUnfree = true;
+
+  # macbook camera
+  hardware.facetimehd.enable = true;
 
   # macbook wifi drivers 
-  nixpkgs.config.allowUnfree = true;
   boot.initrd.kernelModules = [ "wl" ];
   boot.kernelModules = [ "wl" "kvm-intel" ];
   boot.extraModulePackages = [ config.boot.kernelPackages.broadcom_sta ];
@@ -31,6 +34,8 @@
   services.xserver = {
     enable = true;
   };
+
+  services.xserver.desktopManager.wallpaper.mode = "fill";
 
   services.displayManager.gdm.enable = true;
   services.desktopManager.gnome.enable = true;
@@ -73,12 +78,18 @@
   environment.systemPackages = with pkgs; [
     vim
     wget
-    alacritty
     git
     curl
     tree
     emacs
     htop
+    helix
+
+    alacritty
+    sioyek
+    libreoffice-still
+    hunspell
+    hunspellDicts.en-us
   ];
 
   # This option defines the first version of NixOS you have installed on this particular machine,
