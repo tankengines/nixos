@@ -51,6 +51,11 @@
     ];
   };
 
+  fonts.packages = with pkgs; [
+    nerd-fonts.hack
+  ];
+
+  
   programs.firefox = {
     enable = true;
     policies = {
@@ -84,6 +89,7 @@
     emacs
     htop
     helix
+    tmux
 
     alacritty
     sioyek
