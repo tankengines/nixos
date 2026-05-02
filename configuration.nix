@@ -54,7 +54,6 @@
   fonts.packages = with pkgs; [
     nerd-fonts.hack
   ];
-
   
   programs.firefox = {
     enable = true;
@@ -90,6 +89,7 @@
     htop
     helix
     tmux
+    gcc
 
     alacritty
     sioyek
